@@ -1,149 +1,173 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/main/java/Features/dealsmap.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/main/java/Features/Tagging.feature");
 formatter.feature({
   "line": 1,
-  "name": "deal data creation",
+  "name": "Free CRM Application Testing",
   "description": "",
-  "id": "deal-data-creation",
+  "id": "free-crm-application-testing",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "line": 3,
-  "name": "Free CRM Create a new deal scenario",
-  "description": "",
-  "id": "deal-data-creation;free-crm-create-a-new-deal-scenario",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
   "line": 4,
-  "name": "user is on login page",
-  "keyword": "Given "
+  "name": "login with correct username and correct password",
+  "description": "",
+  "id": "free-crm-application-testing;login-with-correct-username-and-correct-password",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@SmokeTest"
+    }
+  ]
 });
 formatter.step({
   "line": 5,
-  "name": "title of the page is Free CRM",
-  "keyword": "When "
+  "name": "This is a valid login test",
+  "keyword": "Given "
 });
-formatter.step({
-  "line": 6,
-  "name": "user enters the username and password",
-  "rows": [
+formatter.match({
+  "location": "Tagging_StepDefinition.this_is_a_valid_login_test()"
+});
+formatter.result({
+  "duration": 225496879,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 8,
+  "name": "login with incorrect username and correct password",
+  "description": "",
+  "id": "free-crm-application-testing;login-with-incorrect-username-and-correct-password",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
     {
-      "cells": [
-        "username",
-        "password"
-      ],
-      "line": 7
-    },
-    {
-      "cells": [
-        "abhi_01s",
-        "Aarush@123"
-      ],
-      "line": 8
+      "line": 7,
+      "name": "@FunctionalTest"
     }
-  ],
-  "keyword": "When "
+  ]
 });
 formatter.step({
   "line": 9,
-  "name": "user clicks on login button",
-  "keyword": "Then "
+  "name": "This is a invalid login test",
+  "keyword": "Given "
 });
-formatter.step({
-  "line": 10,
-  "name": "user is on home page",
-  "keyword": "Then "
+formatter.match({
+  "location": "Tagging_StepDefinition.this_is_a_invalid_login_test()"
 });
-formatter.step({
-  "line": 11,
-  "name": "user moves to new deals page",
-  "keyword": "Then "
+formatter.result({
+  "duration": 59259,
+  "status": "passed"
 });
-formatter.step({
+formatter.scenario({
   "line": 12,
-  "name": "user entering the deals details",
-  "rows": [
+  "name": "Create a contact",
+  "description": "",
+  "id": "free-crm-application-testing;create-a-contact",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
     {
-      "cells": [
-        "title",
-        "amount",
-        "probability",
-        "commision"
-      ],
-      "line": 13
+      "line": 11,
+      "name": "@FunctionalTest"
     },
     {
-      "cells": [
-        "rishu",
-        "1000",
-        "50",
-        "25"
-      ],
-      "line": 14
+      "line": 11,
+      "name": "@SmokeTest"
     }
-  ],
-  "keyword": "Then "
+  ]
 });
 formatter.step({
-  "line": 15,
-  "name": "user close the browser",
-  "keyword": "Then "
+  "line": 13,
+  "name": "This is contact test case",
+  "keyword": "Given "
 });
 formatter.match({
-  "location": "Deals_Mapwithstepdefinition.user_is_on_login_page()"
+  "location": "Tagging_StepDefinition.this_is_contact_test_case()"
 });
 formatter.result({
-  "duration": 25104467542,
+  "duration": 55993,
   "status": "passed"
 });
+formatter.scenario({
+  "line": 16,
+  "name": "Create a deal",
+  "description": "",
+  "id": "free-crm-application-testing;create-a-deal",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 15,
+      "name": "@SmokeTest"
+    },
+    {
+      "line": 15,
+      "name": "@RegressionTest"
+    }
+  ]
+});
+formatter.step({
+  "line": 17,
+  "name": "This is deal test case",
+  "keyword": "Given "
+});
 formatter.match({
-  "location": "Deals_Mapwithstepdefinition.title_of_the_page_is_Free_CRM()"
+  "location": "Tagging_StepDefinition.this_is_deal_test_case()"
 });
 formatter.result({
-  "duration": 280611723,
+  "duration": 62059,
   "status": "passed"
 });
+formatter.scenario({
+  "line": 24,
+  "name": "Search a contact",
+  "description": "",
+  "id": "free-crm-application-testing;search-a-contact",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 23,
+      "name": "@FunctionalTest"
+    }
+  ]
+});
+formatter.step({
+  "line": 25,
+  "name": "This is search contact test case",
+  "keyword": "Given "
+});
 formatter.match({
-  "location": "Deals_Mapwithstepdefinition.user_enters_the_username_and_password(DataTable)"
+  "location": "Tagging_StepDefinition.this_is_search_contact_test_case()"
 });
 formatter.result({
-  "duration": 3822459259,
+  "duration": 69058,
   "status": "passed"
 });
-formatter.match({
-  "location": "Deals_Mapwithstepdefinition.user_clicks_on_login_button()"
+formatter.scenario({
+  "line": 32,
+  "name": "Logout",
+  "description": "",
+  "id": "free-crm-application-testing;logout",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 31,
+      "name": "@SmokeTest"
+    }
+  ]
 });
-formatter.result({
-  "duration": 20928117119,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Deals_Mapwithstepdefinition.user_is_on_home_page()"
-});
-formatter.result({
-  "duration": 363722602,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Deals_Mapwithstepdefinition.user_moves_to_new_deal_page()"
-});
-formatter.result({
-  "duration": 3015664042,
-  "status": "passed"
+formatter.step({
+  "line": 33,
+  "name": "User logout from application",
+  "keyword": "Given "
 });
 formatter.match({
-  "location": "Deals_Mapwithstepdefinition.user_enters_the_deal_details(DataTable)"
+  "location": "Tagging_StepDefinition.user_logout_from_application()"
 });
 formatter.result({
-  "duration": 14625673258,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Deals_Mapwithstepdefinition.user_close_the_browser()"
-});
-formatter.result({
-  "duration": 2009733450,
+  "duration": 58327,
   "status": "passed"
 });
 });
