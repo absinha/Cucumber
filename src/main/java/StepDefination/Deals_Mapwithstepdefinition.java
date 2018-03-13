@@ -1,6 +1,7 @@
-/*package StepDefination;
+package StepDefination;
 
-import java.util.List;
+
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -16,9 +17,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Deals_StepDefinition {
+public class Deals_Mapwithstepdefinition {
 	
-	WebDriver driver;
+WebDriver driver;
 	
 	@Given("^user is on login page$")
 	public void user_is_on_login_page(){
@@ -39,11 +40,12 @@ public class Deals_StepDefinition {
 
 	@When("^user enters the username and password$")
 	public void user_enters_the_username_and_password(DataTable credentials) {
-		List<List<String>> data = credentials.raw();
-		driver.findElement(By.name("username")).sendKeys(data.get(0).get(0));
-		driver.findElement(By.name("password")).sendKeys(data.get(0).get(1));
+		for(Map<String,String> data: credentials.asMaps(String.class, String.class)){
 		
+		driver.findElement(By.name("username")).sendKeys(data.get("username"));
+		driver.findElement(By.name("password")).sendKeys(data.get("password"));
 		
+		}
 					
 	}
 	
@@ -69,16 +71,24 @@ public class Deals_StepDefinition {
 	}
 
 	@Then("^user entering the deals details$")
-	public void user_enters_the_deal_details(DataTable dealdata) {
-		List<List<String>> dealValues = dealdata.raw();
-		driver.findElement(By.id("title")).sendKeys(dealValues.get(0).get(0));
-		driver.findElement(By.name("amount")).sendKeys(dealValues.get(0).get(1));
-		driver.findElement(By.id("probability")).sendKeys(dealValues.get(0).get(2));
-		driver.findElement(By.id("commission")).sendKeys(dealValues.get(0).get(3));
+	public void user_enters_the_deal_details(DataTable dealdata) throws InterruptedException {
+		for(Map<String,String> dealValues: dealdata.asMaps(String.class, String.class)){
+		driver.findElement(By.id("title")).sendKeys(dealValues.get("title"));
+		driver.findElement(By.name("amount")).sendKeys(dealValues.get("amount"));
+		driver.findElement(By.id("probability")).sendKeys(dealValues.get("probability"));
+		driver.findElement(By.id("commission")).sendKeys(dealValues.get("commision"));
 		driver.findElement(By.xpath("//input[@type='submit' and @value='Save']")).click();
+		//Thread.sleep(10);
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='btnFlag']")));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("tab_vsummary")));
 		
+		//move to new deal page
+		//driver.switchTo().frame("mainpanel");
+		//Actions action = new Actions(driver);
+		//action.moveToElement(driver.findElement(By.xpath("//a[@title='Deals']"))).build().perform();
+		//driver.findElement(By.xpath("//a[contains(text(),'New Deal')]")).click();
+		
+		}
 		
 	}
 
@@ -88,6 +98,4 @@ public class Deals_StepDefinition {
 		
 	}
 
-	
 }
-*/

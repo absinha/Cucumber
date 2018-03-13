@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features="src/main/java/Features/Deals.feature", 		//the path of feature file
+		features="src/main/java/Features/dealsmap.feature", 		//the path of feature file
 		glue={"StepDefination"},									//the path of step definition file
 		format={"pretty","html:target/cucumber"},					//to generate different types of reporting
 		monochrome= true,											//display the console output in proper readable format
